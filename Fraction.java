@@ -47,4 +47,12 @@ public class Fraction {
 			System.out.println("Error");
 		}
 	}
+	
+	
+	public static Fraction mult(Fraction a, Fraction b) {
+		int Mdenom=a.denominator * b.denominator;
+		int Mnum= a.numerator * b.numerator;
+		Fraction answer = new Fraction(Mnum,Mdenom);
+		return answer;
+	}
 }

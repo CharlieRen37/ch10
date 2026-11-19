@@ -14,6 +14,8 @@ public static void main (String[] args) {
 	System.out.println(half);
 	System.out.println(third);
 	System.out.println(anotherHalf);
+	Fraction f3= Fraction.mult(half,third);
+	System.out.println(f3);
 }
 
 }
