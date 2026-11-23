@@ -55,4 +55,20 @@ public class Fraction {
 		Fraction answer = new Fraction(Mnum,Mdenom);
 		return answer;
 	}
+	
+	public void reduce(){
+		int GCM;
+		int a =getDenom();
+		int b= getNum();
+		while(a!=b){
+			if(a>b){
+				a=a-b;
+			}else{
+				b=b-a;
+			}
+		}
+		GCM=a;
+		setDenom(denominator/GCM);
+		setNum(numerator/GCM);
+	}
 }
