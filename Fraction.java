@@ -53,8 +53,47 @@ public class Fraction {
 		int Mdenom=a.denominator * b.denominator;
 		int Mnum= a.numerator * b.numerator;
 		Fraction answer = new Fraction(Mnum,Mdenom);
+		answer.reduce();
 		return answer;
 	}
+	
+	public static Fraction add(Fraction a, Fraction b) {
+		int Mdenom=a.denominator * b.denominator;
+		int Mnum= a.numerator * b.denominator + b.numerator * a.denominator;
+		Fraction answer = new Fraction(Mnum,Mdenom);
+		answer.reduce();
+		return answer;
+	}
+	
+	public static Fraction sub(Fraction a, Fraction b) {
+		int Mdenom=a.denominator * b.numerator;
+		int Mnum= a.numerator * b.denominator;
+		Fraction answer = new Fraction(Mnum,Mdenom);
+		answer.reduce();
+		return answer;
+	}
+	
+	public static Fraction div(Fraction a, Fraction b) {
+		int Mdenom=a.denominator * b.denominator;
+		int Mnum= a.numerator * b.denominator - b.numerator * a.denominator;
+		Fraction answer = new Fraction(Mnum,Mdenom);
+		answer.reduce();
+		return answer;
+	}
+	
+	public boolean equals(Fraction f){
+		int a=getDenom();
+		int b=getNum();
+		if(a==f.denominator && b==f.numerator){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	
+	
+	
 	
 	public void reduce(){
 		int GCM;
