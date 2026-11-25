@@ -1,10 +1,29 @@
+import java.util.Scanner;
+
+
 public class FractionQuiz {
 
 public static void main (String[] args) {
-	
+	Scanner in = new Scanner(System.in);
 	System.out.println("Let the Fraction Quiz Begin. Answers should be in lowest terms. Good luck!");
-	System.out.println((int)(Math.random()*10)+ "/"+ (int)(Math.random()*10) " " +);
-	
+	Fraction f4=new Fraction((int)(Math.random()*10),(int)(Math.random()*10));
+	f4.reduce();
+	Fraction f5=new Fraction((int)(Math.random()*10),(int)(Math.random()*10));
+	f5.reduce();
+	System.out.print(f4+" "+ Fraction.ope() +" "+f5+" = ");
+	String answer = in.nextLine();
+	//System.out.println(answer);
+	Fraction f6= new Fraction(answer);
+	System.out.println(Fraction.check(f4,f5,f6));
+	 f4= new Fraction((int)(Math.random()*10),(int)(Math.random()*10));
+	f4.reduce();
+	f5= new Fraction((int)(Math.random()*10),(int)(Math.random()*10));
+	f5.reduce();
+	System.out.print(f4+" "+ Fraction.ope() +" "+f5+" = ");
+	answer = in.nextLine();
+	//System.out.println(answer);
+	f6= new Fraction(answer);
+	System.out.println(Fraction.check(f4,f5,f6));
 	
 	
 	

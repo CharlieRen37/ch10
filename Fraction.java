@@ -2,6 +2,7 @@ public class Fraction {
     // instance variable (atrributes, fields)
 
     int numerator, denominator;
+    public static int sign;
 
     // constructors
     public Fraction() { // default constructor (no parameter)
@@ -66,16 +67,16 @@ public class Fraction {
 	}
 	
 	public static Fraction sub(Fraction a, Fraction b) {
-		int Mdenom=a.denominator * b.numerator;
-		int Mnum= a.numerator * b.denominator;
+		int Mdenom=a.denominator * b.denominator;
+		int Mnum= a.numerator * b.denominator - b.numerator * a.denominator;
 		Fraction answer = new Fraction(Mnum,Mdenom);
 		answer.reduce();
 		return answer;
 	}
 	
 	public static Fraction div(Fraction a, Fraction b) {
-		int Mdenom=a.denominator * b.denominator;
-		int Mnum= a.numerator * b.denominator - b.numerator * a.denominator;
+		int Mdenom=a.denominator * b.numerator;
+		int Mnum= a.numerator * b.denominator;
 		Fraction answer = new Fraction(Mnum,Mdenom);
 		answer.reduce();
 		return answer;
@@ -110,4 +111,42 @@ public class Fraction {
 		setDenom(denominator/GCM);
 		setNum(numerator/GCM);
 	}
+	public static String ope(){
+		int operator=(int)(Math.random()*4);
+		if(operator==0){
+			sign=operator;
+			return "+";
+		}else if(operator==1){
+			sign=operator;
+			return "-";
+		}else if(operator==2){
+			sign=operator;
+			return "*";
+		}else{
+			sign=operator;
+			return "/";
+		}
+	}
+	
+	public static Fraction ans(Fraction a, Fraction b){
+		if(sign==0){
+			return Fraction.add(a,b);
+		}else if(sign==1){
+			return Fraction.sub(a,b);
+		}else if(sign==2){
+			return Fraction.mult(a,b);
+		}else{
+			return Fraction.div(a,b);
+		}
+	}
+	
+	public static String check(Fraction a,Fraction b, Fraction c){
+		if((Fraction.ans(a,b)).equals(c)){
+			return "Correct!";
+		}else{
+			return ("Wrong, the answer was " + Fraction.ans(a,b));
+		}
+	}
+		
+		
 }
