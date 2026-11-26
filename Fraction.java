@@ -3,6 +3,8 @@ public class Fraction {
 
     int numerator, denominator;
     public static int sign;
+    public static int q=0;
+    public static int r=0;
 
     // constructors
     public Fraction() { // default constructor (no parameter)
@@ -142,11 +144,15 @@ public class Fraction {
 	
 	public static String check(Fraction a,Fraction b, Fraction c){
 		if((Fraction.ans(a,b)).equals(c)){
+			Fraction.q+=1;
+			Fraction.r+=1;
 			return "Correct!";
 		}else{
+			Fraction.q+=1;
 			return ("Wrong, the answer was " + Fraction.ans(a,b));
 		}
 	}
+
 		
 		
 }
